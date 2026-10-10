@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Jorge Pancorbo Morales</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ================= CSS (Estilos) ================= */
+        /* ================= CSS (Estilos Personalizados) ================= */
         :root {
-            --primary-color: #a3b18a; 
-            --dark-bg: #132a13; 
-            --light-bg: #f4f6f4; 
+            --primary-color: #839b6d; 
+            --dark-bg: #0e200e; 
+            --light-bg: #f7f9f7; 
             --text-dark: #1e293b;
             --text-light: #ffffff; 
-            --olive-button: #588157; 
-            --olive-hover: #3a5a40; 
+            --olive-button: #446342; 
+            --olive-hover: #2b422a; 
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth; /* Esto hace que al pulsar 'Contacto' baje suavemente */
+            scroll-behavior: smooth; 
         }
 
         body {
             background-color: var(--light-bg);
             color: var(--text-dark);
+            /* Tipografía Mardoto aplicada a todo el texto */
+            font-family: 'Mardoto', sans-serif;
             line-height: 1.7;
+            font-size: 1.15rem;
+        }
+
+        /* Títulos y elementos destacados con Mardoto y un poco más de grosor */
+        h1, h2, h3, h4, .btn, nav a, .skill-badge {
+            font-family: 'Mardoto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 0.5px;
         }
 
         /* Navegación */
@@ -36,29 +44,31 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(19, 42, 19, 0.98); 
+            background: rgba(14, 32, 14, 0.98); 
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(131, 155, 109, 0.2);
         }
         nav a {
             color: var(--text-light);
             text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
+            margin-left: 25px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             transition: color 0.3s ease;
         }
         nav a:hover {
             color: var(--primary-color);
         }
 
-        /* Sección Hero (Cabecera) */
+        /* Sección Hero (Cabecera lisa, sin cuadrícula) */
         header {
             height: 100vh;
-            background: linear-gradient(135deg, #0d1f0d 0%, #132a13 50%, #3a5a40 100%);
+            background-color: var(--dark-bg); /* Fondo liso oscuro */
             color: var(--text-light);
             display: flex;
             flex-direction: column;
@@ -68,54 +78,59 @@
             padding: 0 20px;
         }
         header h1 {
-            font-size: 3.5rem;
+            font-size: 4.2rem;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
         header h1 span {
             color: var(--primary-color);
         }
         header p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             max-width: 700px;
             color: #d1d5db;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-weight: normal;
         }
         
+        /* Botones de autor */
         .btn {
-            padding: 14px 28px;
-            background-color: var(--olive-button);
-            color: #fff;
+            padding: 12px 30px;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             transition: all 0.3s ease;
         }
         .btn:hover {
-            background-color: var(--olive-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            box-shadow: 6px 6px 0px rgba(131, 155, 109, 0.25);
+            transform: translate(-3px, -3px);
         }
 
         /* Secciones Generales */
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
         }
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+            font-size: 3rem;
+            margin-bottom: 50px;
             text-align: center;
             color: var(--dark-bg);
+            text-transform: uppercase;
         }
         h2::after {
             content: '';
             display: block;
-            width: 50px;
-            height: 4px;
+            width: 60px;
+            height: 5px;
             background: var(--olive-button);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            margin: 15px auto 0;
         }
 
         /* Sobre Mí */
@@ -123,43 +138,53 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.1rem;
         }
 
         /* Storytelling GEENIUS */
         .geenius-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         .geenius-header h3 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--dark-bg);
         }
         .geenius-header .fecha {
             color: var(--olive-button);
-            font-weight: 600;
             font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        /* Tarjetas de Historia */
         .story-row {
             display: flex;
             align-items: center;
             gap: 40px;
             background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            margin-bottom: 30px;
+            padding: 40px;
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid var(--olive-button);
+            border-radius: 4px;
+            box-shadow: 8px 8px 0px rgba(68, 99, 66, 0.08);
+            margin-bottom: 35px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .story-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 8px 8px 0px rgba(68, 99, 66, 0.2);
         }
         .story-row.reverse {
             flex-direction: row-reverse;
+            border-left: 1px solid #e2e8f0;
+            border-right: 6px solid var(--olive-button);
         }
         .story-text {
             flex: 1;
         }
         .story-text h4 {
             color: var(--olive-button);
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             margin-bottom: 15px;
         }
         .story-text p {
@@ -167,20 +192,19 @@
         }
         .story-text strong {
             color: var(--dark-bg);
-            background-color: #f1f5f9;
-            padding: 2px 5px;
-            border-radius: 3px;
+            background-color: rgba(131, 155, 109, 0.2);
+            padding: 0px 4px;
         }
         .story-image {
             flex: 1;
-            border-radius: 8px;
+            border-radius: 4px;
             overflow: hidden;
-            background: #e2e8f0; 
-            min-height: 250px;
+            background: #f1f5f9; 
+            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
         }
         .story-image img {
             width: 100%;
@@ -191,35 +215,35 @@
         /* ================= HABILIDADES CATEGORIZADAS ================= */
         .skills-section {
             max-width: 900px;
-            margin: 0 auto 40px;
+            margin: 0 auto 50px;
         }
         .skills-section h3 {
-            color: var(--olive-button);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            border-bottom: 2px solid #e2e8f0;
+            color: var(--dark-bg);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
+            display: inline-block;
         }
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
+            gap: 15px;
         }
         .skill-badge {
-            background: #fff;
+            background: transparent;
             color: var(--dark-bg);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 10px 22px;
+            border-radius: 2px;
+            font-weight: normal;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--olive-button);
             transition: all 0.2s ease;
         }
         .skill-badge:hover {
-            background: var(--primary-color);
+            background: var(--olive-button);
             color: white;
-            transform: translateY(-2px);
         }
 
         /* ================= FOOTER / CONTACTO ================= */
@@ -227,42 +251,46 @@
             background: var(--dark-bg);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
+            border-top: 5px solid var(--primary-color);
         }
-        footer h2 { color: white; margin-bottom: 20px;}
+        footer h2 { color: white; margin-bottom: 25px;}
         footer h2::after { background: var(--primary-color); }
         
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
             flex-wrap: wrap;
         }
         .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            border-radius: 8px;
-            color: white;
+            background: transparent;
+            padding: 16px 35px;
+            border-radius: 4px;
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: 600;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             gap: 10px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 2px solid var(--primary-color);
             transition: all 0.3s ease;
         }
         .contact-card:hover {
             background: var(--primary-color);
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
+            color: var(--dark-bg);
+            box-shadow: 5px 5px 0px rgba(131, 155, 109, 0.4);
+            transform: translate(-2px, -2px);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .story-row, .story-row.reverse { flex-direction: column; }
+            header h1 { font-size: 3rem; }
+            .story-row, .story-row.reverse { flex-direction: column; border-right: none; border-left: 4px solid var(--olive-button); }
             .contact-links { flex-direction: column; align-items: center; }
-            .contact-card { width: 100%; justify-content: center; max-width: 300px; }
+            .contact-card { width: 100%; justify-content: center; max-width: 320px; }
+            nav a { margin-left: 10px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -270,12 +298,12 @@
 
     <!-- Menú de Navegación -->
     <nav>
-        <div style="color: var(--primary-color); font-weight: bold; font-size: 1.2rem; letter-spacing: 1px;">Jorge Pancorbo</div>
+        <div style="color: var(--primary-color); font-weight: bold; font-size: 1.5rem; letter-spacing: 1.5px;">JORGE PANCORBO</div>
         <div>
             <a href="#sobre-mi">Sobre Mí</a>
             <a href="#proyectos">Proyectos</a>
             <a href="#habilidades">Habilidades</a>
-            <a href="#contacto">Contacto</a> <!-- Este enlace ya te lleva automáticamente al footer -->
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
@@ -302,7 +330,7 @@
         
         <div class="geenius-header">
             <h3>Fundación de la Asociación GEENIUS</h3>
-            <span class="fecha">Verano de 2026 - Presente | ETSI (Universidad de Sevilla)</span>
+            <span class="fecha">Verano de 2026 - Presente | ETSI (Univ. de Sevilla)</span>
         </div>
 
         <!-- Bloque 1: Orígenes -->
@@ -403,16 +431,16 @@
         </p>
         
         <div class="contact-links">
-            <a href="mailto:jorgepancorbomorales@gmail.com" class="contact-card">
+            <a href="mailto:jorgepancorbomorales@gmail.com" class="contact-card btn">
                 ✉️ Enviar un Correo
             </a>
-            <a href="https://www.linkedin.com/in/jorge-pancorbo-morales-6391453bb?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="contact-card">
+            <a href="https://www.linkedin.com/in/jorge-pancorbo-morales-6391453bb" target="_blank" class="contact-card btn">
                 💼 Conectar en LinkedIn
             </a>
         </div>
 
         <p style="margin-top: 60px; font-size: 0.9rem; color: #8fa08f;">
-            © 2026 Jorge Pancorbo Morales. Desarrollado con pasión.
+            © 2026 Jorge Pancorbo Morales. Handcrafted with passion.
         </p>
     </footer>
 
