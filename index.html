@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Jorge Pancorbo Morales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================= CSS (Estilos) ================= */
+        :root {
+            --primary-color: #a3b18a; 
+            --dark-bg: #132a13; 
+            --light-bg: #f4f6f4; 
+            --text-dark: #1e293b;
+            --text-light: #ffffff; 
+            --olive-button: #588157; 
+            --olive-hover: #3a5a40; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Esto hace que al pulsar 'Contacto' baje suavemente */
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(19, 42, 19, 0.98); 
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sección Hero (Cabecera) */
+        header {
+            height: 100vh;
+            background: linear-gradient(135deg, #0d1f0d 0%, #132a13 50%, #3a5a40 100%);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+        header h1 span {
+            color: var(--primary-color);
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            background-color: var(--olive-button);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: var(--olive-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 80px 10%;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--dark-bg);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--olive-button);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Sobre Mí */
+        .sobre-mi-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Storytelling GEENIUS */
+        .geenius-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .geenius-header h3 {
+            font-size: 2.2rem;
+            color: var(--dark-bg);
+        }
+        .geenius-header .fecha {
+            color: var(--olive-button);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .story-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+        }
+        .story-row.reverse {
+            flex-direction: row-reverse;
+        }
+        .story-text {
+            flex: 1;
+        }
+        .story-text h4 {
+            color: var(--olive-button);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        .story-text p {
+            color: #334155;
+        }
+        .story-text strong {
+            color: var(--dark-bg);
+            background-color: #f1f5f9;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .story-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #e2e8f0; 
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= HABILIDADES CATEGORIZADAS ================= */
+        .skills-section {
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        .skills-section h3 {
+            color: var(--olive-button);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .skill-badge {
+            background: #fff;
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+        .skill-badge:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ================= FOOTER / CONTACTO ================= */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        footer h2 { color: white; margin-bottom: 20px;}
+        footer h2::after { background: var(--primary-color); }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .contact-card:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-row, .story-row.reverse { flex-direction: column; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .contact-card { width: 100%; justify-content: center; max-width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <nav>
+        <div style="color: var(--primary-color); font-weight: bold; font-size: 1.2rem; letter-spacing: 1px;">Jorge Pancorbo</div>
+        <div>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contacto">Contacto</a> <!-- Este enlace ya te lleva automáticamente al footer -->
+        </div>
+    </nav>
+
+    <!-- Sección Inicial (Hero) -->
+    <header id="inicio">
+        <h1>Hola, soy <span>Jorge Pancorbo Morales</span></h1>
+        <p>Estudiante de Ingeniería de la Energía (US) y cofundador de GEENIUS. Combinando el cálculo técnico, el desarrollo de microrredes y las herramientas digitales para liderar y divulgar la nueva transición energética.</p>
+        <a href="#proyectos" class="btn">Conoce mi trabajo</a>
+    </header>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <div class="sobre-mi-content">
+            <p>Originario de Jaén, actualmente curso mi tercer año del grado. Combino mi formación académica con un fuerte compromiso con el tejido asociativo y la divulgación tecnológica.</p>
+            <br>
+            <p>Destaco por mi perfil versátil, capaz de abordar desde el cálculo termodinámico y eléctrico de instalaciones hasta el desarrollo web y la gestión de proyectos en equipo. Mi objetivo es aportar soluciones innovadoras al sector energético de manera práctica y colaborativa.</p>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" style="background-color: var(--light-bg);">
+        <h2>Proyectos Destacados</h2>
+        
+        <div class="geenius-header">
+            <h3>Fundación de la Asociación GEENIUS</h3>
+            <span class="fecha">Verano de 2026 - Presente | ETSI (Universidad de Sevilla)</span>
+        </div>
+
+        <!-- Bloque 1: Orígenes -->
+        <div class="story-row">
+            <div class="story-text">
+                <h4>Los orígenes: Cómo fundamos GEENIUS</h4>
+                <p>Todo comenzó a principios del verano de 2026. Recién terminados los exámenes en la ETSI, un compañero nos reunió a un pequeño grupo con una idea clara: crear una asociación que sirviera de puente real entre los estudiantes de <strong>Ingeniería de la Energía</strong> y el <strong>sector profesional</strong>. La idea nos entusiasmó tanto que decidimos ponernos manos a la obra ese mismo verano.</p>
+                <br>
+                <p>Durante aquellos primeros meses de creación, mi rol consistió en dar vida y forma a la asociación. Lideré el diseño de nuestra <strong>identidad visual</strong> creando el logotipo (siempre en conjunto con el equipo), gestioné nuestras primeras publicaciones en redes sociales, y ayudé a redactar los <strong>estatutos</strong> y a definir el enfoque estratégico que tendría GEENIUS.</p>
+            </div>
+            <div class="story-image">
+                <img src="WhatsApp Image 2026-10-10 at 18.59.31.jpeg" alt="Orígenes de GEENIUS">
+            </div>
+        </div>
+
+        <!-- Bloque 2: Microred -->
+        <div class="story-row reverse">
+            <div class="story-text">
+                <h4>De la idea a la ingeniería: Nuestro primer gran proyecto</h4>
+                <p>Aunque al principio todos hacíamos un poco de todo para levantar la asociación, decidí enfocar gran parte de mi verano en liderar el apartado técnico. Como Jefe de Microredes, me uní a otros tres compañeros para desarrollar un anteproyecto completo de una <strong>Microgrid</strong>. Logramos sacarlo adelante con éxito, convirtiéndose en uno de los <strong>proyectos insignia</strong> que hoy promovemos desde la asociación.</p>
+                <br>
+                <p>Además, durante esa etapa técnica, impulsamos y participé en un curso intensivo de 3 días sobre el software fotovoltaico <strong>OpenSolar</strong>.</p>
+            </div>
+            <div class="story-image">
+                <img src="Anteproyecto.png" alt="Proyecto de Microred en GEENIUS">
+            </div>
+        </div>
+
+        <!-- Bloque 3: Actualidad -->
+        <div class="story-row">
+            <div class="story-text">
+                <h4>Mi rol actual: Acercando la energía a la sociedad</h4>
+                <p>A principios de este nuevo curso, decidí dar un paso estratégico. Pasé el testigo de la jefatura de Microredes (donde sigo colaborando como socio activo) para asumir un nuevo reto: soy el <strong>Jefe de la Línea Divulgativa</strong>.</p>
+                <br>
+                <p>Nuestro objetivo actual es traducir y acercar el complejo mundo del sector energético a la sociedad. Como parte central de este nuevo rol, actualmente estoy programando y desarrollando desde cero la <strong>página web oficial</strong> de GEENIUS, utilizando <strong>HTML, CSS y JavaScript</strong> desde <strong>Visual Studio Code</strong> para centralizar nuestra presencia digital y nuestros eventos.</p>
+            </div>
+            <div class="story-image">
+                <img src="LogoGEENIUS.png" alt="Desarrollo Web y Divulgación en GEENIUS">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" style="background-color: #ffffff;">
+        <h2>Formación y Herramientas</h2>
+        
+        <!-- Categoría 1: Software de Ingeniería -->
+        <div class="skills-section">
+            <h3>⚙️ Software de Ingeniería y Diseño</h3>
+            <div class="skills-container">
+                <div class="skill-badge">Engineering Equation Solver (EES)</div>
+                <div class="skill-badge">OpenSolar</div>
+                <div class="skill-badge">MATLAB</div>
+                <div class="skill-badge">LTSpice</div>
+            </div>
+        </div>
+
+        <!-- Categoría 2: Desarrollo y Programación -->
+        <div class="skills-section">
+            <h3>💻 Programación y Desarrollo Web</h3>
+            <div class="skills-container">
+                <div class="skill-badge">LaTeX</div>
+                <div class="skill-badge">C++</div>
+                <div class="skill-badge">HTML5</div>
+                <div class="skill-badge">CSS3</div>
+                <div class="skill-badge">JavaScript</div>
+                <div class="skill-badge">Visual Studio Code</div>
+            </div>
+        </div>
+
+        <!-- Categoría 3: Conocimientos Técnicos -->
+        <div class="skills-section">
+            <h3>🔋 Especialización Académica</h3>
+            <div class="skills-container">
+                <div class="skill-badge">Cálculo de Instalaciones Eléctricas</div>
+                <div class="skill-badge">Diseño de Microredes</div>
+                <div class="skill-badge">Sistemas Termodinámicos</div>
+                <div class="skill-badge">Energías Renovables y Generación</div>
+            </div>
+        </div>
+
+        <!-- Categoría 4: Idiomas -->
+        <div class="skills-section">
+            <h3>🌍 Idiomas</h3>
+            <div class="skills-container">
+                <div class="skill-badge">Inglés (Nivel B2)</div>
+                <div class="skill-badge">Francés (No titulado)</div>
+                <div class="skill-badge">Español (Nativo)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <footer id="contacto">
+        <h2>¿Trabajamos juntos?</h2>
+        <p style="margin-bottom: 20px; color: #d1d5db; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Estoy buscando oportunidades de prácticas y colaboraciones en el sector energético. Si te interesa mi perfil, escríbeme un correo o conecta conmigo en LinkedIn.
+        </p>
+        
+        <div class="contact-links">
+            <a href="mailto:jorgepancorbomorales@gmail.com" class="contact-card">
+                ✉️ Enviar un Correo
+            </a>
+            <a href="https://www.linkedin.com/in/jorge-pancorbo-morales-6391453bb?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="contact-card">
+                💼 Conectar en LinkedIn
+            </a>
+        </div>
+
+        <p style="margin-top: 60px; font-size: 0.9rem; color: #8fa08f;">
+            © 2026 Jorge Pancorbo Morales. Desarrollado con pasión.
+        </p>
+    </footer>
+
+</body>
+</html>
